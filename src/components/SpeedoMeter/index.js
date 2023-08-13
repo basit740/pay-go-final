@@ -1,17 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './SpeedoMeter.css'; // Make sure to import your CSS file
 
-const Index = () => {
+import SpeedometerSVGs from './SpeedoMeterSVGs.js';
+
+const Speedometer = () => {
+	const [currentRotationDegree, setCurrentRotationDegree] = useState(-190);
+	// const [degreeIncrement, setDegreeIncrement] = useState(1);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentRotationDegree((prevNumber) => {
+				const newNumber = prevNumber + 1;
+				if (newNumber === -21) {
+					clearInterval(interval); // Stop the interval when the number reaches 10
+				}
+
+				return newNumber;
+			});
+		}, 50);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, []);
 	return (
-		<article className='relative'>
-			<img
-				src='/imgs/rainbow.png'
-				alt='speedo meter img'
-				className='self-end mt-8'
-			/>
-		</article>
+		<div className='speedometer-container'>
+			<SpeedometerSVGs deg={currentRotationDegree} />
+			<div className='arrow-container'>
+				<div
+					className='arrow-wrapper'
+					style={{ transform: `rotate(${currentRotationDegree}deg)` }}
+				>
+					<div className='arrow'>
+						<img
+							src='/imgs/needle.png'
+							alt='needle img'
+							className='arrow-img'
+						/>
+					</div>
+				</div>
+			</div>
+			<div className='bottom-hide'></div>
+		</div>
 	);
 };
 
-export default Index;
-
-/// tumhein tameez ni hai. tum bad tameez ho.
+export default Speedometer;

@@ -1,0 +1,116 @@
+.speedometer-container {
+	width: 366px;
+	height: 366px;
+	/* border: 1px solid black; */
+	border-radius: 50%;
+	/* margin: 50px auto; */
+	position: relative;
+}
+
+.speedometer-scale {
+	width: 3px;
+	height: 320px;
+	background-color: black;
+	position: absolute;
+	left: 179px;
+	top: 20px;
+	/* animation: animate-needle 50s linear; */
+	transition: all 0.4s linear;
+	z-index: 12;
+}
+.speedometer-scale.full {
+	transform: rotate(87deg);
+}
+
+.bottom-hide {
+	background-color: transparent;
+	width: 360px;
+	height: 200px;
+	z-index: 11;
+	top: 180px;
+	position: absolute;
+}
+
+.arrow-container {
+	width: 183px;
+	height: 183px;
+	background-color: transparent;
+	position: absolute;
+	z-index: 13;
+	top: 91px;
+	left: 91px;
+}
+.arrow-wrapper {
+	width: 183px;
+	height: 183px;
+	background-color: red;
+	background-color: transparent;
+	position: relative;
+	transition: all 0.3s;
+	transform: rotate(-21deg);
+}
+
+.arrow .arrow-img {
+	position: absolute;
+	left: 104px;
+	top: 29px;
+	transform: rotate(75deg);
+}
+
+.segment {
+	position: absolute;
+}
+svg path {
+	transition: all 0.3s;
+}
+.segment-1 {
+	top: 108px;
+}
+
+.segment-2 {
+	top: 42px;
+	left: 20px;
+}
+
+.segment-3 {
+	left: 73px;
+	top: 5px;
+}
+.segment-4 {
+	left: 148px;
+}
+.segment-5 {
+	left: 215px;
+	top: 5px;
+}
+.segment-6 {
+	left: 263px;
+	top: 43px;
+}
+.segment-7 {
+	top: 109px;
+	left: 296px;
+}
+
+.segment-1.active-segment path {
+	fill: #d63633;
+}
+.segment-2.active-segment path {
+	fill: #db6a32;
+}
+.segment-3.active-segment path {
+	fill: #e0952f;
+}
+
+.segment-4.active-segment path {
+	fill: #e3c22f;
+}
+.segment-5.active-segment path {
+	fill: #b0c244;
+}
+.segment-6.active-segment path {
+	fill: #66ab3f;
+}
+.segment-7.active-segment path {
+	fill: #189e44;
+}
