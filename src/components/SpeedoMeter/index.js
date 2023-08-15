@@ -17,7 +17,7 @@ const Speedometer = () => {
 
 				return newNumber;
 			});
-		}, 50);
+		}, 22);
 
 		return () => {
 			clearInterval(interval);

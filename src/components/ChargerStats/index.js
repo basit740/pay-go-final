@@ -1,9 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Index = () => {
+import StatsItem from 'components/StatsItem';
+import CreditCardCoin from 'components/SVGs/CreditCardCoin';
+import DollarMoneyNote from 'components/SVGs/DollarMoneyNote';
+import EnergyElectricityThunder from 'components/SVGs/EnergyElectricityThunder';
+import StatusMenu from 'components/SVGs/StatusMenu';
+
+const Index = ({ onButtonClick }) => {
+	const [stats, setStats] = useState([
+		{
+			id: 1,
+			itemText: 'Status: Ready',
+			svg: <StatusMenu />,
+		},
+		{
+			id: 2,
+			itemText: 'Credits: 150 Kr',
+			svg: <CreditCardCoin />,
+		},
+		{
+			id: 3,
+			itemText: 'Price: 2.5 $ Per Kwh',
+			svg: <DollarMoneyNote />,
+		},
+		{
+			id: 4,
+			itemText: 'Remaining Energy: 30kWh',
+			svg: <EnergyElectricityThunder />,
+		},
+	]);
 	return (
-		<article className='self-start bg-stats h-full w-1/2 bg-no-repeat bg-cover object-cover bg-center rounded-2xl'>
-			<h2>Charger Stats</h2>
+		<article className='self-start bg-stats h-full bg-no-repeat bg-cover object-cover bg-center rounded-2xl w-full py-10 px-8'>
+			<ul className='flex list-none flex-col gap-4 mb-6'>
+				{stats.map((item) => (
+					<StatsItem
+						svg={item.svg}
+						itemText={item.itemText}
+						classes='animate-moveDown duration-1000'
+					/>
+				))}
+			</ul>
+			<button
+				onClick={onButtonClick}
+				className='animate-moveUp rounded-full py-3 px-6 flex items-center justify-center cursor-pointer bg-[#87C024] text-white transition-all duration-300 hover:bg-[#7aad20]'
+			>
+				Buy Energy
+			</button>
 		</article>
 	);
 };
