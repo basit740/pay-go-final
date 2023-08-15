@@ -37,11 +37,17 @@ module.exports = {
 					'50%': { opacity: '0.5', transform: 'translateY(20px)' },
 					'100%': { opacity: '1', transform: 'translateY(0px)' },
 				},
+				customBounceOpposite: {
+					'0%': { transform: 'translateY(0px)', opacity: '1' },
+					'50%': { opacity: '0.5', transform: 'translateY(20px)' },
+					'100%': { opacity: '0', transform: 'translateY(40px)' },
+				},
 			},
 			animation: {
 				moveDown: 'moveDown 1s ease-in-out',
 				moveUp: 'moveUp 1.5s ease-in-out',
 				customBounce: 'customBounce .2s linear',
+				customBounceOpposite: 'customBounceOpposite .2s linear',
 			},
 		},
 	},
