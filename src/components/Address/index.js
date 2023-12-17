@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Locate from 'components/SVGs/Locate';
 import { useParams } from 'react-router-dom';
 import { fetchChargerData } from 'services/chargerData';
-import MapContainer from 'components/MapContainer';
+// import MapContainer from 'components/MapContainer';
 const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 const Index = () => {
 	const [chargerData, setChargerData] = useState();
