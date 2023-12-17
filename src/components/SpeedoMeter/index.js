@@ -1,28 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import './SpeedoMeter.css'; // Make sure to import your CSS file
-
+import './SpeedoMeter.css';
 import SpeedometerSVGs from './SpeedoMeterSVGs.js';
 
-const Speedometer = () => {
+const Speedometer = ({ chargerData }) => {
 	const [currentRotationDegree, setCurrentRotationDegree] = useState(-190);
-	// const [degreeIncrement, setDegreeIncrement] = useState(1);
+
+	const calculateEndDegree = (currentPower, maxPower) => {
+		const percentage = currentPower / maxPower;
+		return -190 + percentage * 169; // 169 is the range from -190 to -21
+	};
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentRotationDegree((prevNumber) => {
-				const newNumber = prevNumber + 1;
-				if (newNumber === -21) {
-					clearInterval(interval); // Stop the interval when the number reaches 10
-				}
+		const endDegree = calculateEndDegree(
+			chargerData.currentChargingPower,
+			chargerData.maxChargingPower
+		);
 
-				return newNumber;
+		const interval = setInterval(() => {
+			setCurrentRotationDegree((prevDegree) => {
+				const nextDegree = prevDegree + 1;
+				if (nextDegree >= endDegree) {
+					clearInterval(interval);
+					return endDegree;
+				}
+				return nextDegree;
 			});
 		}, 22);
 
-		return () => {
-			clearInterval(interval);
-		};
-	}, []);
+		return () => clearInterval(interval);
+	}, [chargerData.currentChargingPower, chargerData.maxChargingPower]);
+
 	return (
 		<div className='speedometer-container'>
 			<SpeedometerSVGs deg={currentRotationDegree} />

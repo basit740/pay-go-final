@@ -1,12 +1,12 @@
 //https://pay-and-charge-backend-qk5dyavsbq-lz.a.run.app/client/charger/1
 
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
-let url = baseUrl + '/charger/1';
+let url = baseUrl + '/charger';
 
-export const fetchChargerData = async () => {
+export const fetchChargerData = async (chargerId) => {
 	try {
 		// Perform the fetch call
-		const response = await fetch(url);
+		const response = await fetch(url + '/' + chargerId);
 
 		// Check if the response is ok (status code in the range 200-299)
 		if (!response.ok) {
