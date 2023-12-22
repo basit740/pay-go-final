@@ -5,17 +5,19 @@ import CreditCardCoin from 'components/SVGs/CreditCardCoin';
 import DollarMoneyNote from 'components/SVGs/DollarMoneyNote';
 import EnergyElectricityThunder from 'components/SVGs/EnergyElectricityThunder';
 import StatusMenu from 'components/SVGs/StatusMenu';
+import { useTranslation } from 'react-i18next';
 
 const Index = ({ onButtonClick, chargerData }) => {
+	const { t } = useTranslation();
 	const [stats, setStats] = useState([
 		{
 			id: 1,
-			itemText: `Status: ${chargerData?.status}`,
+			itemText: `${t('status')}: ${chargerData?.status}`,
 			svg: <StatusMenu />,
 		},
 		{
 			id: 2,
-			itemText: `Credits: ${chargerData?.credits}`,
+			itemText: `${t('credits')}: ${chargerData?.credits}`,
 			svg: <CreditCardCoin />,
 		},
 		{
@@ -25,7 +27,7 @@ const Index = ({ onButtonClick, chargerData }) => {
 		},
 		{
 			id: 4,
-			itemText: `Remaining Energy: ${chargerData?.purchasedEnergy}`,
+			itemText: `${t('remaining_energy')}: ${chargerData?.purchasedEnergy}`,
 			svg: <EnergyElectricityThunder />,
 		},
 	]);
@@ -45,7 +47,7 @@ const Index = ({ onButtonClick, chargerData }) => {
 				onClick={onButtonClick}
 				className='animate-moveUp rounded-full py-3 px-6 flex items-center justify-center cursor-pointer bg-[#87C024] text-white transition-all duration-300 hover:bg-[#7aad20]'
 			>
-				Buy Energy
+				{t('buy_energy')}
 			</button>
 		</article>
 	);

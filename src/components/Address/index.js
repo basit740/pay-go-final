@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Locate from 'components/SVGs/Locate';
 import { useParams } from 'react-router-dom';
 import { fetchChargerData } from 'services/chargerData';
+import { useTranslation } from 'react-i18next';
 // import MapContainer from 'components/MapContainer';
 const apiKey = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+
 const Index = () => {
 	const [chargerData, setChargerData] = useState();
 	const { chargerId } = useParams();
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		fetchChargerData(chargerId).then((data) => {
@@ -19,7 +22,7 @@ const Index = () => {
 		<article className='Address z-30 flex items-center gap-6 w-full justify-between rounded-3xl bg-neutral-200 mb-48 overflow-hidden'>
 			<blockquote className='p-10 flex flex-col gap-8 w-1/2'>
 				<div className='flex flex-col gap-4'>
-					<h2 className='text-4xl font-semibold capitalize'>Charger</h2>
+					<h2 className='text-4xl font-semibold capitalize'>{t('charger')}</h2>
 					{chargerData ? (
 						<p className='text-gray-400 text-2xl'>
 							<span>{chargerData.adress}</span> <br />{' '}
@@ -34,7 +37,7 @@ const Index = () => {
 					)}
 				</div>
 				<div className='flex flex-col gap-4'>
-					<h3 className='text-3xl font-semibold'>Support</h3>
+					<h3 className='text-3xl font-semibold'>{t('support')}</h3>
 					<p className='text-gray-400 text-2xl'>+46 70 861 8052</p>
 				</div>
 			</blockquote>

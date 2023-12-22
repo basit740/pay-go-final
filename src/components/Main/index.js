@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 import ChargetStats from 'components/ChargerStats';
 import SpeedoMeterContainer from 'components/SpeedoMeterContainer';
 import { fetchChargerData } from 'services/chargerData';
+
 const Index = ({ onButtonClick }) => {
 	const { chargerId } = useParams();
+	
 
 	const [chargerData, setChargerData] = useState(null);
 	useEffect(() => {

@@ -1,5 +1,6 @@
 {
 	"select_lang": "Select Language",
+
 	"welcome_to": "Welcome to",
 	"pay_go_charge": "Pay Go Charge",
 	"welcome_remaining_message": "the simple way to charge our electric vehicle. just add credits to start the charger",
@@ -9,6 +10,7 @@
 	"remaining_energy": "Remaining Energy",
 	"current_power": "Current Power",
 	"max_power": "Max Power",
+	"buy_energy": "Buy Energy",
 	"charger": "Charger",
 	"support": "Support",
 	"company_address": "Company Address",
