@@ -1,0 +1,20 @@
+{
+	"select_lang": "Sélectionnez la langue",
+
+	"welcome_to": "Bienvenue à",
+	"pay_go_charge": "Pay Go Charge",
+	"welcome_remaining_message": "la manière simple de charger votre véhicule électrique. Ajoutez simplement des crédits pour démarrer le chargeur",
+
+	"status": "Statut",
+	"credits": "Crédits",
+	"remaining_energy": "Énergie Restante",
+	"current_power": "Puissance Actuelle",
+	"max_power": "Puissance Maximale",
+	"charger": "Chargeur",
+	"support": "Support",
+	"company_address": "Adresse de l'Entreprise",
+	"email": "E-mail",
+	"home": "Accueil",
+	"about": "À Propos",
+	"contact_us": "Contactez-Nous"
+}
